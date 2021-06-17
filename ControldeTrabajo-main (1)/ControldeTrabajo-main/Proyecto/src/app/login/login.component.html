@@ -1,0 +1,41 @@
+<p></p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <table>
+        <tr>
+            <td><H1>Iniciar Sesion</H1></td>
+         </tr>
+       </table>
+    
+    </div>
+<p></p>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">      
+        <form>
+          <div class="col-md-auto px-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="mail" name="mail" [(ngModel)]="login.email" aria-describedby="emailHelp">            
+          </div>
+          <p></p>
+          <div class="mb-2 px-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="clave" name="clave" [(ngModel)]="login.password">
+          </div> 
+          <p></p>
+          <div class="form-text px-3">
+            Para registrar click <a class="text-success" routerLink='/registro_usuario'>Aquí</a>
+          </div>
+          <p></p>
+          <div class="row justify-content-center px-4">
+            <button type="submit" class="btn btn-info" (click)="Login()">Ingresar</button>
+          </div>      
+          <p></p>
+        </form> 
+    </div>
+    
+  </div>
+
+</div>
+</div>
+

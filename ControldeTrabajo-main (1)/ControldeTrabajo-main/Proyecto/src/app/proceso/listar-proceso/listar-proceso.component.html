@@ -1,0 +1,81 @@
+<p></p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <table>
+                <tr>
+                    <td><H1>Listado de Procesos</H1></td>
+                    <td class="tr-aling"><button class="btn btn-outline-success" routerLink='/crear_proceso'> + Procesos </button></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-active" >
+                            <th scope="row" style="width: 80px;">Id Proceso</th>
+                            <th>Tarea</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th style="width: 225px;">Acciones</th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-active" *ngFor="let pro of procesos">
+                            <td scope="row">{{pro.id_proceso}}</td>
+                            <td>{{pro.tarea_pro}}</td>
+                            <td>{{pro.usuario_pro}}</td>
+                            <td>{{pro.estado}}</td>
+                            <td>
+                                <button class="btn btn-warning" (click)="getDataProceso(pro.id_proceso, pro.tarea_pro, pro.usuario_pro, pro.estado)" data-toggle="modal" data-target="#modelId">Editar</button>
+                                
+                                <button class="btn btn-danger" (click)="DeleteProceso(pro.id_proceso)">Eliminar</button>  
+                                                           
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Proceso</h5>
+            </div>
+            <form >
+                <div class="modal-body">
+                    <label for="">Id Proceso</label>
+                    <input disabled="true" [(ngModel)]="id_proceso" name="id_proceso" type="text" class="form-control"><p></p>
+                    <label for="">Tarea</label>
+                    <select class="form-select" id="tarea_pro" name="tarea_pro" [(ngModel)]="tarea_pro">
+                        <option *ngFor="let tar of tareas" value={{tar.nombre}}>
+                          {{tar.nombre}}
+                        </option>
+                    </select><p></p>                    
+                    <label for="">Usuario</label>
+                    <select class="form-select" id="usuario_pro" name="usuario_pro" [(ngModel)]="usuario_pro">
+                        <option *ngFor="let usu of usuarios" value={{usu.id_usuario}}>
+                          {{usu.mail}}
+                        </option>
+                    </select><p></p>                    
+                    <label for="">Estado</label>
+                    <select class="form-select" id="estado" name="estado" [(ngModel)]="estado">
+                        <option>Activa</option>
+                        <option>En Proceso</option>
+                        <option>Finalizada</option>                        
+                    </select>                  
+                </div>
+               
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" (click)="updateProceso()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

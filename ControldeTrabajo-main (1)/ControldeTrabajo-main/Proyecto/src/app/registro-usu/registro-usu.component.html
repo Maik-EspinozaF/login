@@ -1,0 +1,53 @@
+
+<p></p>
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+        <table>
+          <tr>
+              <td><H1>Agregar Funcionario</H1>
+               </td>
+              
+          </tr>
+        </table>
+      </div>
+      <p></p>
+      <div class="container">
+        <form (ngSubmit)="crearUsuario()">
+          <div class="row justify-content-md-center">
+            <div class="col-9">
+              <label for="validationCustomUsername" class="form-label">Correo electronico</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" id="i_mail" name="i_mail" [(ngModel)]="usuario.mail" class="form-control" aria-describedby="inputGroupPrepend" required>                
+              </div></div>
+            <div class="col-4">
+                <label for="validationCustom02" class="form-label">Clave</label>
+                <input type="password" id="clave" name="clave" [(ngModel)]="usuario.clave" class="form-control" required>                
+            </div>
+            <div class="col-5 form-group">
+                <label for="validationCustom03" class="form-label">Departamento</label>
+                <select class="form-select" id="nom_depto" name="nom_depto" [(ngModel)]="usuario.nom_depto">
+                  <option *ngFor="let dep of departamentos" value={{dep.nom_depto}}>
+                    {{dep.nom_depto}}
+                  </option>
+                </select> 
+            </div>
+            <p></p>
+            <div class="col-5">
+              <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+          </div>                
+        </form>        
+      </div>
+      
+        <div class="row">
+              
+          <p></p>        
+        </div>
+      
+    
+  </div>
+</div>
+
+

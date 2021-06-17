@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card">
+        <form (ngSubmit)="crearDepto()">
+        <div class="card-header">
+            <table>
+                <tr>                    <td><H1>Listado de Departamentos</H1>
+                    </td>
+                    <td class="tr-aling"><label for="">Depto. nuevo:</label><input type="text" id="nom_depto" name="nom_depto" [(ngModel)]="departamento.nom_depto"></td>
+                    <td class="tr-aling"><button type="submit" class="btn btn-success"> + Guardar</button></td>
+                </tr>                
+            </table>            
+        </div>
+        </form>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-active" >
+                            <th>Departamento</th>
+                            <th style="width: 100px;">Acciones</th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-active" *ngFor="let dep of departamentos" >
+                            <td>{{dep.nom_depto}}</td>
+                            
+                            <td>                                
+                                <button class="btn btn-danger" (click)="Delete(dep.nom_depto)">Eliminar</button>                                                             
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>

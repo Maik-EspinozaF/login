@@ -1,0 +1,19 @@
+
+
+table {
+    width: 100%;
+}
+button{
+  margin-right: 30px;
+} 
+.spacer{
+  flex: 1 1 auto;
+}
+.tr-aling{
+  text-align: right;
+}
+.tr2-aling{
+  vertical-align: baseline;
+}
+
+
